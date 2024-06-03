@@ -11,7 +11,8 @@ public class StudentGradeCalculator {
         String[] subjectNames = new String[numberOfSubjects];
         int[] marks = new int[numberOfSubjects];
 
-
+        // Input validation for subject names (optional)
+        // You can add a loop here to ensure non-empty subject names:
         for (int i = 0; i < numberOfSubjects; i++) {
             do {
                 System.out.printf("Enter subject name for subject %d: ", i + 1);
@@ -22,7 +23,9 @@ public class StudentGradeCalculator {
         for (int i = 0; i < numberOfSubjects; i++) {
             System.out.printf("Enter marks for %s (out of 100): ", subjectNames[i]);
             marks[i] = scanner.nextInt();
-            
+
+            // Input validation for marks (optional)
+            // You can add an if-else block here to check if marks are within 0-100 range:
             if (marks[i] < 0 || marks[i] > 100) {
                 System.out.println("Invalid marks entered. Please enter a value between 0 and 100.");
                 i--; // Decrement i to repeat mark entry for the same subject
@@ -53,7 +56,7 @@ public class StudentGradeCalculator {
     }
 
     public static double calculateAveragePercentage(int totalMarks, int numberOfSubjects) {
-        return (double) totalMarks / (numberOfSubjects * 100.0);
+        return (double) 10*(totalMarks /( numberOfSubjects * 100));  // Use 100.0 for double precision
     }
 
     public static char calculateGrade(double averagePercentage) {
