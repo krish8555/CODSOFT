@@ -37,6 +37,9 @@ public class NumberGuessingGame {
                 System.out.println("You ran out of attempts. The number was: " + numberToGuess);
             }
 
+            // Consume the newline character left by the guess input
+            scanner.nextLine(); // This line is added to fix the yes/no loop issue
+
             System.out.println("Play again? (y/n)");
         } while (scanner.nextLine().equalsIgnoreCase("y"));
 
