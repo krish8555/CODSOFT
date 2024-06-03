@@ -7,10 +7,19 @@ public class NumberGuessingGame {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        int maxAttempts = 5; // Modify this for desired number of attempts
         int score = 0;
 
         do {
+            // Get user input for number of attempts
+            System.out.println("Enter the desired number of attempts (default: 5): ");
+            int maxAttempts;
+            try {
+                maxAttempts = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                maxAttempts = 5; // Use default if invalid input
+                System.out.println("Invalid input. Using default attempts (5).");
+            }
+
             // Generate random number
             int numberToGuess = random.nextInt(100) + 1; // Range: 1 to 100
 
@@ -38,7 +47,7 @@ public class NumberGuessingGame {
             }
 
             // Consume the newline character left by the guess input
-            scanner.nextLine(); // This line is added to fix the yes/no loop issue
+            scanner.nextLine();
 
             System.out.println("Play again? (y/n)");
         } while (scanner.nextLine().equalsIgnoreCase("y"));
